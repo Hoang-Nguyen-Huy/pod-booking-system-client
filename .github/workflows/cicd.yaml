@@ -45,27 +45,6 @@ jobs:
           VITE_APP_ID: ${{ secrets.VITE_APP_ID }}
           VITE_MEASUREMENT_ID: ${{ secrets.VITE_MEASUREMENT_ID }}
 
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v4
-        with:
-          name: production-files
-          path: ./dist
-
-  deploy:
-    name: Deploy to Server
-    runs-on: ubuntu-22.04
-    needs: build # Job deploy depend on job build
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: production-files
-          path: ./dist
-
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
