@@ -84,7 +84,7 @@ export default function Header() {
         component={Link}
         to='/login'
       >
-        Đăng nhập test test
+        Đăng nhập
       </Button>
       <Button
         variant='outlined'
